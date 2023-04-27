@@ -22,7 +22,12 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            // 'email' => 'required|string|email|max:255',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date',
+            'vacation_set' => 'nullable|boolean',
+            'role' => 'nullable|string'
         ];
     }
 }
