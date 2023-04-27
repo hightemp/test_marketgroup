@@ -2,6 +2,8 @@
 
 ## Запуск
 
+В репозитории лежит база sqlite. Создавать не нужно.
+
 ```bash
 php artisan serve
 ```
@@ -17,6 +19,11 @@ php artisan user:create "John Doe" "john@example.com" "password" --vacation-set=
 ##
 php artisan user:create "John Doe" "john@example.com" "password" --start-date="2022-07-01" --end-date="2022-07-31" --vacation-set=1 --role="employee"
 ```
+
+## Скриншоты
+
+![](./images/2023-04-27_12-42.png)
+![](./images/2023-04-27_12-42_1.png)
 
 ## Задание
 
