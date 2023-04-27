@@ -13,7 +13,7 @@ php artisan serve
 php artisan db:seed --class=UsersTableSeeder
 # Создание пользователя
 # Создание сотрудника
-php artisan user:create "John Doe" "john@example.com" "password" --vacation-set=1 --role="employee"
+php artisan user:create "John Doe" "john@example.com" "password" --vacation-set=0 --role="employee"
 ##
 php artisan user:create "John Doe" "john@example.com" "password" --start-date="2022-07-01" --end-date="2022-07-31" --vacation-set=1 --role="employee"
 ```

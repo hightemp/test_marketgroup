@@ -1,17 +1,111 @@
 @extends("layout.default")
 
 @section("content")
-<form action="{{ route('task.update', $task->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-    <div class="form-group">
-        <label for="title">Заголовок</label>
-        <input type="text" name="title" id="title" class="form-control" value="{{ $task->title }}">
-    </div>
-    <div class="form-group">
-        <label for="description">Описание</label>
-        <textarea name="description" id="description" class="form-control">{{ $task->description }}</textarea>
-    </div>
-    <button type="submit" class="mt-3 btn btn-primary">Обновить</button>
-</form>
+    <form method="POST" action="{{ route('user.update', $user->id) }}">
+        @csrf
+        @method('PUT')
+
+        <div class="mt-3 form-group row">
+            <label for="name" class="col-md-4 col-form-label text-md-right">ФИО</label>
+
+            <div class="col-md-6">
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name" autofocus>
+
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="mt-3 form-group row">
+            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+
+            <div class="col-md-6">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
+
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="mt-3 form-group row">
+            <label for="start_date" class="col-md-4 col-form-label text-md-right">Дата начала отпуска</label>
+
+            <div class="col-md-6">
+                <input id="start_date" type="date" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="{{ old('start_date', $user->start_date) }}" required>
+
+                @error('start_date')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="mt-3 form-group row">
+            <label for="end_date" class="col-md-4 col-form-label text-md-right">Дата конца отпуска</label>
+
+            <div class="col-md-6">
+                <input id="end_date" type="date" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="{{ old('end_date', $user->end_date) }}">
+
+                @error('end_date')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        @if ($user->role == 'boss')
+        <div class="mt-3 form-group row">
+            <label for="vacation_set" class="col-md-4 col-form-label text-md-right">Блокировать изменения</label>
+
+            <div class="col-md-6">
+                <div class="form-check">
+                    <input id="vacation_set" type="checkbox" class="form-check-input @error('vacation_set') is-invalid @enderror" name="vacation_set" value="1" {{ old('vacation_set', $user->vacation_set) ? 'checked' : '' }}>
+                </div>
+
+                @error('vacation_set')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="mt-3 form-group row">
+            <label for="role" class="col-md-4 col-form-label text-md-right">Роль</label>
+
+            <div class="col-md-6">
+                <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
+                    <option value="">--</option>
+                    <option value="employee" {{ old('role', $user->role) == 'employee' ? 'selected' : '' }}>Сотрудник</option>
+                    <option value="boss" {{ old('role', $user->role) == 'boss' ? 'selected' : '' }}>Начальник</option>
+                </select>
+
+                @error('role')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        @endif
+
+        <div class="mt-3 form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                    Обновить
+                </button>
+                <a href="{{ route('user.index') }}" class="btn btn-secondary">
+                    Назад
+                </a>
+            </div>
+        </div>
+    </form>
 @endsection
