@@ -18,5 +18,3 @@ use App\Console\Commands\CreateUserCommand;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
-
-Artisan::command('user:create {name?} {email?} {password?} {--start-date=} {--end-date=} {--vacation-set=} {--role=}', CreateUserCommand::class);

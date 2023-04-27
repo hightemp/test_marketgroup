@@ -2,9 +2,9 @@
 
 @section("content")
 <h1>{{ $employee->name }}</h1>
-<p>{{ $employee->email }}</p>
-<p>{{ $employee->role }}</p>
-<p>{{ $employee->vacation_set }}</p>
-<p>{{ $employee->start_date }}</p>
-<p>{{ $employee->end_date }}</p>
+<p><b>email:</b> {{ $employee->email }}</p>
+<p><b>Роль:</b> {{ $employee->role }}</p>
+<p><b>Блокировать изменения:</b> {{ $employee->vacation_set }}</p>
+<p><b>Дата начала отпуска:</b> {{ $employee->start_date }}</p>
+<p><b>Дата конца отпуска:</b> {{ $employee->end_date }}</p>
 @endsection
