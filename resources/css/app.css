@@ -1,0 +1,40 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #eee;
+}
+
+.container {
+    background: #fff;
+    min-height: 100%;
+}
+
+.top-menu {
+    border-bottom: 1px solid #eee;
+}
+
+.last-projects-panel {
+    min-height: 200px;
+    border: 1px solid #eee;
+    padding: 5px;
+}
+
+.last-tasks-panel {
+    min-height: 200px;
+    border: 1px solid #eee;
+    padding: 5px;
+}
+
+.table-actions-col-inner {
+    display: flex;
+}
+
+.nav-button {
+    background: none;
+    border: 0px;
+}
